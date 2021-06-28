@@ -1,5 +1,6 @@
 package main;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UserInterface{
@@ -7,7 +8,7 @@ public class UserInterface{
 
     }
 
-    public void interact(){
+    public void interact() throws FileNotFoundException {
         System.out.print("""
                 Welcome to the Rental management program.
                 Please select an option to continue:
@@ -52,7 +53,7 @@ public class UserInterface{
                 case 6:
                     System.out.println("Adding a new Tenant");
                     TenantInputScreen tis = new TenantInputScreen();
-                    //tis.addTenant();
+                    tis.display();
                     break;
                 case 7:
                     System.out.println("Thanks for using the Rental management program!");

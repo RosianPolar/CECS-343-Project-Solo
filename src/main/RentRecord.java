@@ -47,12 +47,18 @@ public class RentRecord{
                 }
 
                 totalRent += yearlyRent;
+
+                //Debug print statements
                 // System.out.println("Yearly rent of AptNo: " + rent[0]
                 //        + ": " + yearlyRent);
+
             }
             scan.close();
+
+            //Debug print statements
             // System.out.println("Total rent: " + totalRent);
             // System.out.println();
+
             return Float.parseFloat(String.valueOf(totalRent));
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
