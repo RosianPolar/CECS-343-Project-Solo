@@ -1,6 +1,5 @@
 package main;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -13,13 +12,14 @@ public class UserInterface{
         System.out.print("""
                 Welcome to the Rental management program.
                 Please select an option to continue:
-                1) Display the Tenant List
-                2) Input a rental payment
-                3) Display the Expense Record
-                4) Display the Annual Summary
-                5) Display the Rent Record
-                6) Add a new Tenant
-                7) Quit
+                1) Add a new Tenant
+                2) Input an expense
+                3) Input a rental payment
+                4) Display the Tenant List
+                5) Display the Expense Record
+                6) Display the Annual Summary
+                7) Display the Rent Record
+                8) Quit
                 """);
 
         Scanner in = new Scanner(System.in);
@@ -28,36 +28,42 @@ public class UserInterface{
         while (input > -999){
             switch(input){
                 case 1:
+                    System.out.println("Adding a new Tenant");
+                    TenantInputScreen tis = new TenantInputScreen();
+                    tis.display();
+                    break;
+                case 2:
+                    System.out.println("Adding a new expense");
+                    ExpenseInputScreen eis = new ExpenseInputScreen();
+                    eis.display();
+                    break;
+                case 3:
+                    System.out.println("Adding a new rental payment");
+                    RentInputScreen ris = new RentInputScreen();
+                    ris.display();
+                    break;
+                case 4:
                     System.out.println("Displaying the list of tenants:");
                     TenantList tl = new TenantList();
                     tl.display();
                     break;
-                case 2:
-                    RentInputScreen ris = new RentInputScreen();
-                    ris.display();
-                    break;
-                case 3:
+                case 5:
                     System.out.println("Displaying the Expense Record:");
                     ExpenseRecord er = new ExpenseRecord();
                     er.display();
                     er.displaySummary();
                     break;
-                case 4:
-                    System.out.println("Displaying the Annual Report:");
+                case 6:
+                    System.out.println("Displaying the Annual Summary");
                     AnnualReport ar = new AnnualReport();
                     ar.display();
                     break;
-                case 5:
-                    System.out.println("Displaying the Rent Record:");
+                case 7:
+                    System.out.println("Displaying the Rent Record");
                     RentRecord rr = new RentRecord();
                     rr.display();
                     break;
-                case 6:
-                    System.out.println("Adding a new Tenant");
-                    TenantInputScreen tis = new TenantInputScreen();
-                    tis.display();
-                    break;
-                case 7:
+                case 8:
                     System.out.println("Thanks for using the Rental management program!");
                     System.exit(0);
                     break;
@@ -67,14 +73,16 @@ public class UserInterface{
             }
             System.out.println(
                     """
-                            Please select an option to continue:
-                            1) Display the Tenant List
-                            2) Input a rental payment
-                            3) Display the Expense Record
-                            4) Display the Annual Summary
-                            5) Display the Rent Record
-                            6) Add a new Tenant
-                            7) Quit""");
+                Please select an option to continue:
+                1) Add a new Tenant
+                2) Input an expense
+                3) Input a rental payment
+                4) Display the Tenant List
+                5) Display the Expense Record
+                6) Display the Annual Summary
+                7) Display the Rent Record
+                8) Quit
+                """);
             input = in.nextInt();
         }
     }
